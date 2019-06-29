@@ -1,5 +1,6 @@
 module.exports = function(app, passport){
-// home page with login-page /////////////
+
+    // home page with login-page /////////////
     app.get('/', function(req, res) {
         res.render('index.ejs'); //load the index.ejs file
     });
@@ -42,9 +43,13 @@ app.get('/logout', function(req, res) {
 
 }
 
+
+// route middleware to make sure user is logged in
+
 function isLoggedIn(req, res, next) {
+    // if user is authenticated in session, go on & carry on
     if( req.isAuthenticated())
     return next();
-
+    //if not, redirect them to index.ejs a.k.a, home page
     res.redirect('/');
 }

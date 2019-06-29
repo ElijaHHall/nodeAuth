@@ -1,19 +1,19 @@
-const express  = require('express');
-const app      = express();
-const mongoose = require('mongoose');
-const passport = require('passport');
-const flash    = require('connect-flash');
+var express  = require('express');
+var app      = express();
+var mongoose = require('mongoose');
+var passport = require('passport');
+var flash    = require('connect-flash');
 
-const morgan       = require('morgan');
-const cookieParser = require('cookie-parser');
-const bodyParser   = require('body-parser');
-const session      = require('express-session');
+var morgan       = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser   = require('body-parser');
+var session      = require('express-session');
 
 const configDB = require('./config/database.js');
 
 // configuration
 
-// mongoose.connect(configDB.url); //connect to my dbs
+mongoose.connect(configDB.url); //connect to my dbs
 
 
 require('./config/passport'); // pass passport to configurations
